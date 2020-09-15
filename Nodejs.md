@@ -83,3 +83,26 @@ npx tsc --init
 ```
 npm install -D @types/express
 ```
+
+## cloud build
+
+「APIとサービス」より「App Engine Admin API」を有効にする
+
+「IAMと管理」にて「xxxxxxxxxx@cloudbuild.gserviceaccount.com」へ以下のロールを割り当てます。
+
+- App Engine デプロイ担当者
+
+- App Engine サービス管理者
+
+- Cloud Build サービス アカウント
+
+Cloud Tasksを使用する場合は以下のロールを割り当てます。
+
+- Cloud Scheduler 管理者
+
+- クラウドタスク管理者
+
+- Cloud Tasks サービス エージェント
+
+サーバーレス VPC アクセス ユーザー
+
