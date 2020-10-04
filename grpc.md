@@ -1,6 +1,14 @@
 # grpc
 
-## 
+## 概要
+
+
+
+## プロキシーが必要な理由
+
+参考:
+
+https://yuku.takahashi.coffee/blog/2019/01/grpc-proxy-for-grpc-web
 
 ## RPC方式
 
