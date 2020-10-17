@@ -4,19 +4,25 @@
 
 - Windows 10
 
+## 概要
+
+- リリースは偶数バージョンが長期サポート(LTS)の対象となる
+
+  現状では約3年でおおよそサポートが終了するサイクルでリリースされています
+
 ## Node.jsインストール
 
-インストーラーをnode.jsの[公式サイト](https://nodejs.org/ja/)からダウンロードし、インストールを行う事も出来る
+- インストーラーをnode.jsの[公式サイト](https://nodejs.org/ja/)からダウンロードし、インストールを行う事も出来る
 
-リリースは偶数バージョンが長期サポート(LTS)の対象となる
+  ただ、新しいバージョンのリリース毎、プロジェクトの指定毎に再インストールするのは色々な手間が生じます。
 
-現状では約3年でおおよそサポートが終了するサイクルでリリースされています
+- そこでNode.jsのバージョン管理ツールの「nodist」を使用し、node.jsをインストールする
 
-新しいバージョンがリリース毎に再インストールするのは色々な手間が生じます。
+  [nodist](https://github.com/nullivex/nodist)のインストーラーをダウンロードし、インストールを行う
 
-そこでNode.jsのバージョン管理ツールの「nodist」を使用し、node.jsをインストールする
+  (Macの場合は、「nodebrew」「nvm」、他には「nodeenv」「anyenv」も存在する)
 
-[nodist](https://github.com/nullivex/nodist)のインストーラーをダウンロードし、インストールを行う
+### nodist
 
 - 利用可能なバージョン一覧
 
@@ -52,9 +58,11 @@ nodist 12.18.1
 
 ## npx
 
-npxはローカルモジュールの呼び出しが可能になるコマンド
+- npxはローカルモジュールの呼び出しが可能になるコマンド
 
-ただ、nodistでインストールした場合に付属しない為、別途インストールする必要がある
+  (やっている事はnode_modules/bin/配下を呼び出している)
+
+- ただ、nodistでインストールした場合に付属しない為、下記のコマンドにて別途インストールする必要がある
 
 ```
 npm i -g npx
@@ -84,25 +92,5 @@ npx tsc --init
 npm install -D @types/express
 ```
 
-## cloud build
 
-「APIとサービス」より「App Engine Admin API」を有効にする
-
-「IAMと管理」にて「xxxxxxxxxx@cloudbuild.gserviceaccount.com」へ以下のロールを割り当てます。
-
-- App Engine デプロイ担当者
-
-- App Engine サービス管理者
-
-- Cloud Build サービス アカウント
-
-Cloud Tasksを使用する場合は以下のロールを割り当てます。
-
-- Cloud Scheduler 管理者
-
-- クラウドタスク管理者
-
-- Cloud Tasks サービス エージェント
-
-サーバーレス VPC アクセス ユーザー
 
