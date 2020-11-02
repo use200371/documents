@@ -8,23 +8,34 @@
 
 ## cloud build
 
+### 概要
+
+CI/CDによるGAEへのデプロイ方法について記述します。
+
+### 必要なロール
+
+Cloud Build APIを有効にすると下記の特殊なサービスアカウントがメンバーとしてプロジェクトに割り当てられます。
+
+|サービスアカウント名|名前|
+|:-|:-|
+|[PROJECT_NUMBER]@cloudbuild.gserviceaccount.com|Cloud Buildサービスアカウント|
+|service-[PROJECT_NUMBER]@containerregistry.ima.gserviceaccount.com|Google Container Registry サービスエージェントサービスアカウント|
+|service-[PROJECT_NUMBER]@gcp-sa-cloudbuild.iam.gserviceaccount.com|Cloud Buildサービスエージェントサービスアカウント|
+
+GAEへデプロイする際に「Cloud Buildサービスアカウント」へ以下のロールを割り当てする必要があります。
+
+|ロール|コメント
+|:-|:-|
+|App Engine デプロイ担当者|
+|App Engine サービス管理者|
+|Cloud Build サービスアカウント|デフォルトで割り当てされている|
+|Cloud Scheduler 管理者|Cloud Tasksを使用する場合に必要|
+|クラウドタスク管理者|Cloud Tasksを使用する場合に必要|
+|Cloud Tasks サービスエージェント|Cloud Tasksを使用する場合に必要|
+
+
+
 「APIとサービス」より「App Engine Admin API」を有効にする
-
-「IAMと管理」にて「xxxxxxxxxx@cloudbuild.gserviceaccount.com」へ以下のロールを割り当てます。
-
-- App Engine デプロイ担当者
-
-- App Engine サービス管理者
-
-- Cloud Build サービス アカウント
-
-Cloud Tasksを使用する場合は以下のロールを割り当てます。
-
-- Cloud Scheduler 管理者
-
-- クラウドタスク管理者
-
-- Cloud Tasks サービス エージェント
 
 サーバーレス VPC アクセス ユーザー
 
